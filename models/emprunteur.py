@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields, api
 
 class Emprunteur(models.Model):
     _name = 'gestion_biblio.emprunteur'
@@ -10,3 +10,10 @@ class Emprunteur(models.Model):
     state = fields.Boolean(string="State")
     sexe = fields.Selection([('homme', 'Homme'), ('femme', 'Femme')], string="Sexe")
     emprunt_id = fields.One2many('gestion_biblio.emprunt', 'emprunteur_id', string='Emprunteur')
+
+    nbr_emprunt = fields.Integer(string='Nombre des emprunts', compute='_compute_nbr_emprunt')
+
+    @api.depends('emprunt_id')
+    def _compute_nbr_emprunt(self):
+        for record in self:
+            record.nbr_emprunt = len(record.emprunt_id)

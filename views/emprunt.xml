@@ -12,7 +12,14 @@
                             <field name="date_fin" />
                             <field name="rendu" />
                             <field name="emprunteur_id" />
-                            <field name="auteur_id" />
+                            <field name="emprunt_ligne_id">
+                                <tree editable="top">
+                                    <field name="livre_id"/>
+                                    <field name="isbn"/>
+                                    <field name="langue"/>
+                                    <field name="nbr_pages"/>
+                                </tree>
+                            </field>
                         </group>
                     
                     </sheet>
@@ -24,13 +31,19 @@
             <field name="name">emprunt.list.view</field>
             <field name="model">gestion_biblio.emprunt</field>
             <field name="arch" type="xml">
-                <tree>
+                <tree editable="top">
                     <field name="date_debut" />
                     <field name="date_fin" />
                     <field name="rendu" />
                     <field name="emprunteur_id" />
-                    <field name="auteur_id" />
-              
+                    <field name="emprunt_ligne_id">
+                        <tree editable="top">
+                            <field name="livre_id"/>
+                            <field name="isbn"/>
+                            <field name="langue"/>
+                            <field name="nbr_pages"/>
+                        </tree>
+                    </field>
                 </tree>
             </field>
         </record>
@@ -43,9 +56,6 @@
 
                     <field name="emprunteur_id" />
 
-                    
-                    <field name="emprunt_ligne_id" domain="[]" />
-                
                     <group expand="0" string="Group By">
                       <filter string="Rendu" name="group_by_rendu"
                           domain="[]" context="{'group_by': 'rendu'}" />

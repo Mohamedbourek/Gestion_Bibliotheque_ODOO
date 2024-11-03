@@ -15,6 +15,7 @@
                         <group>
                             <field name="state" />
                             <field name="sexe" />
+                            <field name="nbr_emprunt" readonly="1"/>
                         </group>
                     </sheet>
                 </form>
@@ -31,6 +32,7 @@
                     <field name="date_naissance" />
                     <field name="state" />
                     <field name="sexe" />
+                    <field name="nbr_emprunt" readonly="1"/>
                 </tree>
             </field>
         </record>
