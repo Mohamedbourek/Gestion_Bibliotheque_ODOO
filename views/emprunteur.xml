@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_emprunteur_form" model="ir.ui.view">
+            <field name="name">emprunteur.form.view</field>
+            <field name="model">gestion_biblio.emprunteur</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="nom" />
+                            <field name="prenom" />
+                            <field name="date_naissance" />
+                        </group>
+                        <group>
+                            <field name="state" />
+                            <field name="sexe" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_emprunteur_tree" model="ir.ui.view">
+            <field name="name">emprunteur.list.view</field>
+            <field name="model">gestion_biblio.emprunteur</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="nom" />
+                    <field name="prenom" />
+                    <field name="date_naissance" />
+                    <field name="state" />
+                    <field name="sexe" />
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

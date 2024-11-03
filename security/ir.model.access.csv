@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_auteur,gestion_biblio.access_auteur,model_gestion_biblio_auteur,base.group_user,1,1,1,1
+access_livre,gestion_biblio.access_livre,model_gestion_biblio_livre,base.group_user,1,1,1,1
+access_emprunteur,gestion_biblio.access_emprunteur,model_gestion_biblio_emprunteur,base.group_user,1,1,1,1
+access_emprunt,gestion_biblio.access_emprunt,model_gestion_biblio_emprunt,base.group_user,1,1,1,1
+access_emprunt_ligne,gestion_biblio.access_emprunt_ligne,model_gestion_biblio_emprunt_ligne,base.group_user,1,1,1,1

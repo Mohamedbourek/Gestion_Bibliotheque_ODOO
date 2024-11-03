@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_emprunt_form" model="ir.ui.view">
+            <field name="name">emprunt.form.view</field>
+            <field name="model">gestion_biblio.emprunt</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="date_debut" />
+                            <field name="date_fin" />
+                            <field name="rendu" />
+                            <field name="emprunteur_id" />
+                            <field name="auteur_id" />
+                        </group>
+                    
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_emprunt_tree" model="ir.ui.view">
+            <field name="name">emprunt.list.view</field>
+            <field name="model">gestion_biblio.emprunt</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="date_debut" />
+                    <field name="date_fin" />
+                    <field name="rendu" />
+                    <field name="emprunteur_id" />
+                    <field name="auteur_id" />
+              
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_emprunt_search" model="ir.ui.view">
+            <field name="name">emprunt.search</field>
+            <field name="model">gestion_biblio.emprunt</field>
+            <field name="arch" type="xml">
+                <search string="Emprunt">
+
+                    <field name="emprunteur_id" />
+
+                    
+                    <field name="emprunt_ligne_id" domain="[]" />
+                
+                    <group expand="0" string="Group By">
+                      <filter string="Rendu" name="group_by_rendu"
+                          domain="[]" context="{'group_by': 'rendu'}" />
+
+                   </group>
+                </search>
+
+            </field>
+        </record>
+    </data>
+</odoo>

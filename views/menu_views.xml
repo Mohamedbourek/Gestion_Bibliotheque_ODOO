@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Actions -->
+    <record id="action_gestion_biblio_auteur" model="ir.actions.act_window">
+        <field name="name">Auteurs</field>
+        <field name="res_model">gestion_biblio.auteur</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_type">form</field>
+        <field name="view_id" ref="view_auteur_tree" />
+    </record>
+
+    <record id="action_gestion_biblio_livre" model="ir.actions.act_window">
+        <field name="name">Livres</field>
+        <field name="res_model">gestion_biblio.livre</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_type">form</field>
+        <field name="view_id" ref="view_livre_tree" />
+    </record>
+
+    <record id="action_gestion_biblio_emprunteur" model="ir.actions.act_window">
+        <field name="name">Emprunteurs</field>
+        <field name="res_model">gestion_biblio.emprunteur</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_type">form</field>
+        <field name="view_id" ref="view_emprunteur_tree" />
+    </record>
+
+    <record id="action_gestion_biblio_emprunt" model="ir.actions.act_window">
+        <field name="name">Emprunts</field>
+        <field name="res_model">gestion_biblio.emprunt</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_type">form</field>
+        <field name="view_id" ref="view_emprunt_tree" />
+    </record>
+
+    <!-- Menus -->
+    <menuitem id="menu_gestion_biblio_root"
+        name="Bibliothèque"
+    />
+
+    <menuitem id="menu_gestion_biblio_auteur"
+        name="Auteurs"
+        parent="menu_gestion_biblio_root"
+        action="action_gestion_biblio_auteur"
+    />
+
+    <menuitem id="menu_gestion_biblio_livre"
+        name="Livres"
+        parent="menu_gestion_biblio_root"
+        action="action_gestion_biblio_livre"
+    />
+
+    <menuitem id="menu_gestion_biblio_emprunteur"
+        name="Emprunteurs"
+        parent="menu_gestion_biblio_root"
+        action="action_gestion_biblio_emprunteur"
+    />
+
+    <menuitem id="menu_gestion_biblio_emprunt"
+        name="Emprunts"
+        parent="menu_gestion_biblio_root"
+        action="action_gestion_biblio_emprunt"
+    />
+</odoo>

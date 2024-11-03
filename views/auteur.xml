@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_auteur_form" model="ir.ui.view">
+            <field name="name">auteur.form.view</field>
+            <field name="model">gestion_biblio.auteur</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="nom" />
+                            <field name="prenom" />
+                            <field name="date_naissance" />
+                        </group>
+                        <group>
+                            <field name="nationalite" />
+                            <field name="sexe" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_auteur_tree" model="ir.ui.view">
+            <field name="name">auteur.list.view</field>
+            <field name="model">gestion_biblio.auteur</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="nom" />
+                    <field name="prenom" />
+                    <field name="date_naissance" />
+                    <field name="nationalite" />
+                    <field name="sexe" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_auteur_search" model="ir.ui.view">
+            <field name="name">auteur.search</field>
+            <field name="model">gestion_biblio.auteur</field>
+            <field name="arch" type="xml">
+                <search string="Auteur">
+
+                    <filter string="Auteurs Tunisiens" name="auteurs_tunisiens"
+                    domain="[('nationalite', '=', 'tunisien')]" />
+                
+                </search>
+
+            </field>
+        </record>
+
+        
+
+
+    </data>
+</odoo>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="emprunt_ligne_form_view">
+            <field name="name">emprunt_ligne.form.view</field>
+            <field name="model">gestion_biblio.emprunt_ligne</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="livre_id"/>
+                            <field name="emprunt_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="emprunt_ligne_list_view">
+            <field name="name">emprunt_ligne.list.view</field>
+            <field name="model">gestion_biblio.emprunt_ligne</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="livre_id"/>
+                    <field name="emprunt_id"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="action_gestion_biblio_emprunt_ligne" model="ir.actions.act_window">
+        <field name="name">Emprunts ligne</field>
+        <field name="res_model">gestion_biblio.emprunt_ligne</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_type">form</field>
+        <field name="view_id" ref="emprunt_ligne_list_view" />
+    </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_livre_form" model="ir.ui.view">
+            <field name="name">livre.form.view</field>
+            <field name="model">gestion_biblio.livre</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="titre" />
+                            <field name="langue" />
+                            <field name="isbn" />
+                           
+                        </group>
+                        <group>
+                            <field name="nbr_pages"></field>
+                            <field name="image_libre"></field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_livre_tree" model="ir.ui.view">
+            <field name="name">livre.list.view</field>
+            <field name="model">gestion_biblio.livre</field>
+            <field name="arch" type="xml">
+                <tree >
+                    <field name="titre" />
+                    <field name="langue" />
+                    <field name="isbn" />
+                    <field name="nbr_pages"></field>
+                    <field name="image_libre"></field>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_livre_search" model="ir.ui.view">
+            <field name="name">livre.search</field>
+            <field name="model">gestion_biblio.livre</field>
+            <field name="arch" type="xml">
+                <search string="Livre">
+
+                    <field name="isbn" string="ISBN" />
+
+                </search>
+
+            </field>
+        </record>
+    </data>
+</odoo>
