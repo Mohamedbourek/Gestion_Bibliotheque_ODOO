@@ -17,3 +17,6 @@ class Emprunteur(models.Model):
     def _compute_nbr_emprunt(self):
         for record in self:
             record.nbr_emprunt = len(record.emprunt_id)
+
+    
+   

@@ -16,5 +16,11 @@ class Emprunt(models.Model):
             self.rendu = 'oui'
         else:
             self.rendu = 'non' 
+            
+    @api.constrains('date_fin', 'date_debut')
+    def _check_date_fin(self):
+        for record in self:
+            if record.date_fin < record.date_debut:
+                raise ValidationError("La date de fin ne peut pas être antérieure à la date de début.")
 
 
