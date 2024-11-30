@@ -1,0 +1,30 @@
+
+<odoo>
+<data>
+<record id="view_employee_form_inherit" model="ir.ui.view">
+<field name="name">hr.employee.form.inherit</field>
+<field name="model">hr.employee</field>
+<field name="inherit_id" ref="hr.view_employee_form"/>
+<field name="arch" type="xml">
+
+    <xpath expr="//group[@name='active_group']" position="inside">
+        <field name="date_debut"/>
+        <field name="nombre_annee" readonly="1"/>
+    </xpath>
+ 
+    <xpath expr="//page[@name='personal_information']//group" position="after">
+            <group string="Informations retraite">
+                <field name="num_retraite"/>
+                <field name="date_retraite"/>
+            </group>
+    </xpath>
+
+
+                 <xpath expr="//field[@name='visa_expire']" position="replace">
+                      <field name="num_retraite"/>
+                      <field name="date_retraite"/>
+                </xpath>
+</field>
+</record>
+</data>
+</odoo>

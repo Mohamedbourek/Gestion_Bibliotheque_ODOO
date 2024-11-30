@@ -33,6 +33,44 @@
         <field name="view_id" ref="view_emprunt_tree" />
     </record>
 
+     <record id="action_gestion_biblio_article" model="ir.actions.act_window">
+        <field name="name">Articles</field>
+        <field name="res_model">gestion_biblio.livre</field>  
+        <field name="view_mode">tree,form</field>
+         <field name="view_type">form</field>
+        <field name="view_id" ref="view_article_tree" />
+    </record>
+
+    <record id="action_emprunt_ligne_wizard" model="ir.actions.act_window">
+        <field name="name">Ajouter Ligne d'Emprunt</field>
+        <field name="res_model">gestion_biblio.emprunt_ligne_wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="model_gestion_biblio_emprunt"/>
+        <field name="view_id" ref="view_emprunt_ligne_wizard_form"/>
+    </record>
+    
+    <record id="action_emprunt_wizard" model="ir.actions.act_window">
+        <field name="name">Ajouter Emprunt</field>
+        <field name="res_model">gestion_biblio.emprunt_wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="model_gestion_biblio_emprunteur"/>
+        <field name="view_id" ref="view_emprunt_wizard_form"/>
+    </record>
+    
+<record id="action_emprunt_reset_wizard" model="ir.actions.act_window">
+    <field name="name">Réinitialiser Emprunts</field>
+    <field name="res_model">gestion_biblio.emprunt.reset.wizard</field>
+    <field name="view_mode">form</field>
+    <field name="target">new</field>
+    <field name="binding_model_id" ref="model_gestion_biblio_emprunteur"/>
+    <field name="view_id" ref="view_emprunt_reset_wizard_form"/>
+    <field name="context">{'default_emprunteur_id': active_id}</field>
+    <field name="groups_id" eval="[(6, 0, [ref('gestion_biblio.group_directeur')])]"/>
+</record>
+    
+
     <!-- Menus -->
     <menuitem id="menu_gestion_biblio_root"
         name="Bibliothèque"
@@ -60,5 +98,11 @@
         name="Emprunts"
         parent="menu_gestion_biblio_root"
         action="action_gestion_biblio_emprunt"
+    /> 
+
+    <menuitem id="menu_gestion_biblio_article" 
+          name="Articles" 
+          parent="menu_gestion_biblio_root"
+          action="action_gestion_biblio_article"
     />
 </odoo>

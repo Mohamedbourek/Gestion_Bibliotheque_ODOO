@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+ <record id="action_report_emprunt_extended" model="ir.actions.report">
+            <field name="name">Fiche emprunt étendue</field>
+            <field name="model">gestion_biblio.emprunt</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">gestion_biblio.report_emprunt_extended</field>
+            <field name="report_file">gestion_biblio.report_emprunt_extended</field>
+            <field name="binding_model_id" ref="model_gestion_biblio_emprunt"/>
+            <field name="paperformat_id" ref="paperformat_emprunt"/>
+            <field name="binding_type">report</field>
+        </record>
+<template id="report_emprunt_extended" inherit_id="gestion_biblio.report_emprunt">
+<xpath expr="//div[@class='page']" position="inside">
+<div class="row mt-4">
+<div class="col-12">
+<!-- Book Information Section -->
+<h3>Information des Livres</h3>
+<div class="mt-3">
+<t t-foreach="doc.emprunt_ligne_id" t-as="emprunt_ligne">
+<t t-set="livre" t-value="emprunt_ligne.livre_id"/>
+<div class="book-section" style="margin-bottom: 20px; border-bottom: 1px solid #ddd; padding: 10px;">
+<div class="book-details">
+<h4>Information du livre</h4>
+<p><strong>Titre: </strong><span t-field="livre.titre"/></p>
+<p><strong>ISBN: </strong><span t-field="livre.isbn"/></p>
+<p><strong>Langue: </strong><span t-field="livre.langue"/></p>
+<p><strong>Nombre de pages: </strong><span t-field="livre.nbr_pages"/></p>
+</div>
+</div>
+</t>
+</div>
+ 
+                <!-- Author Information Section -->
+<h3 class="mt-4">Information des Auteurs</h3>
+<div class="mt-3">
+<t t-foreach="doc.emprunt_ligne_id" t-as="emprunt_ligne">
+<t t-set="livre" t-value="emprunt_ligne.livre_id"/>
+<t t-if="livre.auteur_id">
+<div class="author-section" style="margin-bottom: 20px; border-bottom: 1px solid #ddd; padding: 10px;">
+<div class="row">
+<div class="col-4">
+<t t-if="livre.auteur_id.image_auteur">
+<img t-att-src="'data:image/png;base64,%s' % livre.auteur_id.image_auteur" 
+                                                 alt="Photo de l'auteur" 
+                                                 style="width: 100px; height: auto;"/>
+</t>
+</div>
+<div class="col-8">
+<div class="author-details">
+<h4>Information de l'auteur pour: <span t-field="livre.titre"/></h4>
+<p><strong>Nom: </strong><span t-field="livre.auteur_id.nom"/></p>
+<p><strong>Prénom: </strong><span t-field="livre.auteur_id.prenom"/></p>
+<p><strong>Nationalité: </strong><span t-field="livre.auteur_id.nationalite"/></p>
+<p><strong>Sexe: </strong><span t-field="livre.auteur_id.sexe"/></p>
+</div>
+</div>
+</div>
+</div>
+</t>
+<t t-else="">
+<p class="text-muted">Aucun auteur associé au livre: <span t-field="livre.titre"/></p>
+</t>
+</t>
+</div>
+</div>
+</div>
+</xpath>
+</template>
+</data>
+</odoo>

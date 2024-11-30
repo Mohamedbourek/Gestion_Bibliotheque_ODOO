@@ -9,5 +9,6 @@ class Auteur(models.Model):
     date_naissance = fields.Date(string="Date_naissance", required=True)
     nationalite = fields.Char(string="Nationalité", default="Algérienne")
     sexe = fields.Selection([('homme', 'Homme'), ('femme', 'Femme')], string="Sexe")
+    image_auteur = fields.Char(string="Image")
     livre_id = fields.One2many('gestion_biblio.livre', 'auteur_id', string="Livre")
 

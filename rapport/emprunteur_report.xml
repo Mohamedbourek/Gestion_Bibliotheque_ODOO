@@ -1,0 +1,79 @@
+<odoo>
+    <data>
+        <!-- Paper Format Definition -->
+        <record id="paperformat_emprunteur" model="report.paperformat">
+            <field name="name">Format emprunteur</field>
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">40</field>
+            <field name="margin_bottom">20</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">35</field>
+        </record>
+
+        <!-- Report Action -->
+        <record id="action_report_auteur" model="ir.actions.report">
+            <field name="name">Fiche emprunteur</field>
+            <field name="model">gestion_biblio.emprunteur</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">gestion_biblio.report_emprunteur</field>
+            <field name="report_file">gestion_biblio.report_emprunteur</field>
+            <field name="binding_model_id" ref="model_gestion_biblio_emprunteur"/>
+            <field name="paperformat_id" ref="paperformat_emprunteur"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- Report Template -->
+        <template id="report_emprunteur">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <div class="text-center">
+                                <h2>Fiche emprunteur</h2>
+                            </div>
+                            <br/>
+                            <br/>
+                            <div class="row mt-4">
+                                <div class="col-12">
+                                    <h3>Informations de l'emprunteur</h3>
+                                    <div class="mt-3">
+                                        <strong>Nom:</strong>
+                                        <span t-field="doc.name"/>
+                                        <br/>
+                                        <strong>Prénom:</strong>
+                                        <span t-field="doc.prenom"/>
+                                        <br/>
+                                        <strong>Nationalité:</strong>
+                                        <span t-field="doc.nationalite"/>
+                                        <br/>
+                                        <strong>Date de naissance:</strong>
+                                        <span t-field="doc.date_naissance"/>
+                                        <br/>
+                                        <strong>Sexe:</strong>
+                                        <span t-field="doc.sexe"/>
+
+                                        <br/>
+                                        <strong>state:</strong>
+                                        <span t-field="doc.state"/>
+
+                                        <br/>
+                                        <strong>nbr_emprunt:</strong>
+                                        <span t-field="doc.nbr_emprunt"/>
+
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

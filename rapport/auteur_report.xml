@@ -1,0 +1,71 @@
+<odoo>
+    <data>
+
+        <record id="paperformat_auteur" model="report.paperformat">
+            <field name="name">Impression</field>
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">15</field>
+            <field name="margin_bottom">5</field>
+            <field name="margin_left">3</field>
+            <field name="margin_right">3</field>
+        </record>
+        
+        <!-- DÉCLARATION DU REPORT -->
+        <report
+            id="report_auteur"
+            file="les auteurs"  
+            model="gestion_biblio.auteur" 
+            name="gestion_biblio.auteur_report" 
+            report_type="qweb-pdf" 
+            string="Les auteurs"
+            paperformat="gestion_biblio.paperformat_auteur"
+        />
+
+        <!-- Report Action -->
+        <record id="action_report_auteur" model="ir.actions.report">
+            <field name="name">Auteur Report</field>
+            <field name="model">gestion_biblio.auteur</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">gestion_biblio.auteur_report</field>
+            <field name="report_file">gestion_biblio.auteur_report</field>
+            <field name="binding_model_id" ref="gestion_biblio.paperformat_auteur"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- Report Template -->
+        <template id="gestion_biblio.report_auteur">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <div class="text-center">
+                                <h2>Les auteurs</h2>
+                            </div>
+                            <br/>
+                            <br/>
+                            <div class="row mt-4">
+                                <div class="col-12">
+                                    <h3>Informations du auteurs</h3>
+                                    <div class="mt-3">
+                                        <strong>Nom:</strong>
+                                        <span t-field="doc.nom"/>
+                                        <br/>
+                                        <strong>Prénom:</strong>
+                                        <span t-field="doc.prenom"/>
+                                        <br/>
+                                        <strong>Nationalité:</strong>
+                                        <span t-field="doc.nationalite"/>
+                                        <br/>
+                                        <strong>Sexe:</strong>
+                                        <span t-field="doc.sexe"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

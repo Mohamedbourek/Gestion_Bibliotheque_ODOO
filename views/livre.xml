@@ -16,6 +16,7 @@
                         <group>
                             <field name="nbr_pages"></field>
                             <field name="image_libre"></field>
+                            <field name="auteur_id" />
                         </group>
                     </sheet>
                 </form>

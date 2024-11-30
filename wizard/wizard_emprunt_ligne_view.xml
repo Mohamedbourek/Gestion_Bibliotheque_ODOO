@@ -1,0 +1,21 @@
+<odoo>
+    <record id="view_emprunt_ligne_wizard_form" model="ir.ui.view">
+        <field name="name">emprunt.ligne.wizard.form</field>
+        <field name="model">gestion_biblio.emprunt_ligne_wizard</field>
+        <field name="arch" type="xml">
+            <form string="Ajouter Ligne d'Emprunt">
+                <group>
+                    <field name="emprunt_id"/>
+                    <field name="livre_id"/>
+                    <field name="isbn"/>
+                    <field name="nbr_pages"/>
+                    <field name="langue"/>
+                </group>
+                <footer>
+                    <button string="Ajouter" type="object" name="action_ajouter_ligne_emprunt" class="btn-primary"/>
+                    <button string="Annuler" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

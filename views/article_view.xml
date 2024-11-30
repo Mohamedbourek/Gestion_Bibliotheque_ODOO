@@ -1,0 +1,40 @@
+<odoo>
+    <data>
+        <!-- Form View -->
+        <record id="view_article_form" model="ir.ui.view">
+            <field name="name">article.form.view</field>
+            <field name="model">gestion_biblio.livre</field>  <!-- Must match the model name -->
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="titre"/>
+                            <field name="isbn"/>
+                            <field name="image_libre"/>
+                             <field name="auteur_id" />
+                            <field name="universite"/>
+                            <field name="laboratoire"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree View -->
+        <record id="view_article_tree" model="ir.ui.view">
+            <field name="name">article.tree.view</field>
+            <field name="model">gestion_biblio.livre</field>  <!-- Must match the model name -->
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="titre"/>
+                    <field name="isbn"/>
+                    <field name="image_libre"/>
+                     <field name="auteur_id" />
+                    <field name="universite"/>
+                    <field name="laboratoire"/>
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</odoo>
